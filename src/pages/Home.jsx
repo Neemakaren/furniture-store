@@ -8,13 +8,13 @@ import {
   Affordable, 
   BestSellers, 
   Reviews, 
-  Footer} 
-  from '../components/index'
+  Footer
+} 
+from '../components/index';
 
 const Home = () => {
   return (
     <>
-        <Navbar />
         <Hero />
         <Categories />
         <NewProducts />
@@ -22,7 +22,6 @@ const Home = () => {
         <Affordable />
         <BestSellers />
         <Reviews />
-        <Footer />
     </>
   )
 }

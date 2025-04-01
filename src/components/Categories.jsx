@@ -3,13 +3,13 @@ import { card } from '../assets/images'
 
 const Categories = () => {
   return (
-    <section className='container mx-auto font-sans my-10'>
-        <div className='flex justify-between items-center my-9'>
-            <h1 className='font-bold text-[40px]'>Shop by Categories</h1>
+    <section className='container mx-auto font-sans my-10 '>
+        <div className='flex justify-between items-center px-2 my-9'>
+            <h1 className='font-bold text-[30px] lg:text-[40px]'>Shop by Categories</h1>
             <button className='px-10 py-2 text-[14px] border-[1px] border-black rounded-sm font-medium'>View All</button>
         </div>
 
-        <div className='grid items-center gap-2 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4'>
+        <div className='grid items-center gap-2 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4'>
             <div>
             <img src={card} alt="" className='w-full'/>
             <div>

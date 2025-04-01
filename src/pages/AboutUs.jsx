@@ -25,7 +25,7 @@ const AboutUs = () => {
             <img src={img} alt="" className='w-full h-[100%] object-cover aspect-auto'/>
         </div> */}
         <div className='bg-[#F6F4F2]'>
-        <div className='container mx-auto py-16 flex justify-between items-center bg-[#F6F4F2]'>
+        <div className='container mx-auto py-16 flex flex-col lg:flex-row justify-between items-center bg-[#F6F4F2]'>
             <div>
             <h1 className='text-[40px] font-bold'>Live comfortably inside your home</h1>
             <span className='text-[16px] font-medium'>Est nulla tincidunt commodo massa. Nunc interdum cras id augue</span>
@@ -38,7 +38,7 @@ const AboutUs = () => {
 
         <div className='grid items-center gap-5 my-6 grid-cols-1 md:grid-cols-2 container mx-auto'>
              <div className='font-sans bg-[#F6F4F2]'>
-            <img src={img} alt="" className='w-full h-[100%] object-cover aspect-auto'/>
+            <img src={img} alt="" className='w-full h-full object-cover aspect-auto'/>
 
             <div className='px-8 py-20'>
                 <h2 className='text-[40px] font-bold leading-tight'>Furniture that will last <br /> a lifetime</h2>
@@ -51,7 +51,7 @@ Tellus dui pharetra ut pellentesque posuere ut amet. Curabitur lectus viverra in
         
              <div className='bg-[#F6F4F2] font-sans'>
             <div className='px-8 py-20'>
-                <h2 className='text-[40px] font-bold'>Live comfortably <br /> inside your home</h2>
+                <h2 className='text-[40px] font-bold leading-tight'>Live comfortably <br /> inside your home</h2>
                 <p className='opacity-65 text-[14px] leading-loose py-6'>Ullamcorper sit lacus sed risus congue integer amet erat risus. Euismod lacus lectus a dignissim velit. Facilisi lorem vitae purus habitant ac neque scelerisque adipiscing. <br />
 Tellus dui pharetra ut pellentesque posuere ut amet. Curabitur lectus viverra in sit tortor. Magnis tristique tristique blandit nunc tincidunt et duis adipiscing ac
 . Nulla dictum semper commodo sit habitant nam neque vitae leo. Nibh vestibulum ac sollicitudin a quam mi. Quam dui ac risus egestas.</p>
@@ -60,6 +60,8 @@ Tellus dui pharetra ut pellentesque posuere ut amet. Curabitur lectus viverra in
             <img src={img} alt="" className='w-full h-full object-cover aspect-auto '/>
         </div>
         </div>
+
+
             <div className='my-10 p-10'>
             <h1 className='text-[50px] my-8 font-bold text-center'>Our Team</h1>
 
