@@ -8,7 +8,6 @@ import {
   twitter,
 } from "../assets/images/index";
 const Footer = () => {
- 
   return (
     <footer className="bg-[#F6F4F2] font-sans pt-20 pb-16">
       <div className="flex flex-col md:flex-row md:justify-between md:items-center container mx-auto">
@@ -52,17 +51,12 @@ const Footer = () => {
         <div>
           <div className="flex items-center gap-3">
             <h4 className="text-[1.2em] font-bold pb-2">Shop</h4>
-            <AiTwotoneDownCircle
-              className="text-2xl sm:hidden md:hidden lg:hidden"
-              onClick={() => setIsOpen((prev) => !prev)}
-            />
+            
           </div>
           {/* <ul className=' opacity-60' onClick={handleCloseNavbar}> */}
           <ul
-            className={`${
-              isOpen ? " flex " : "hidden"
-            } cursor-pointer text-[1em] sm:block md:block lg:block flex-col opacity-60`}
-            onClick={handleCloseNavbar}
+            className="
+            cursor-pointer text-[1em] sm:block md:block lg:block flex-col opacity-60"
           >
             <li>Chairs</li>
             <li>Beds</li>
@@ -75,16 +69,10 @@ const Footer = () => {
         <div>
           <div className="flex items-center gap-3">
             <h4 className="text-[1.2em] font-bold pb-2">Customer service</h4>
-            <AiTwotoneDownCircle
-              className="text-2xl sm:hidden md:hidden lg:hidden"
-              onClick={() => setIsOpen((prev) => !prev)}
-            />
+          
           </div>
           <ul
-            className={`${
-              isOpen ? " flex " : "hidden"
-            } cursor-pointer text-[1em] sm:block md:block lg:block flex-col opacity-60`}
-            onClick={handleCloseNavbar}
+            className="cursor-pointer text-[1em] sm:block md:block lg:block flex-col opacity-60"
           >
             <li>Orders</li>
             <li>Addresses</li>

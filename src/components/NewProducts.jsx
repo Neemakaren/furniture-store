@@ -8,14 +8,14 @@ const NewProducts = () => {
         <h1 className="font-bold text-[30px] lg:text-[40px] text-center my-6">
           New Products
         </h1>
-        <ul className="flex items-center justify-center gap-[20px] md:gap-[50px] lg:gap-[68px] text-[18px]">
+        {/* <ul className="flex items-center justify-center gap-[20px] md:gap-[50px] lg:gap-[68px] text-[18px]">
           <li>All</li>
           <li>Chairs</li>
           <li>Tables</li>
           <li>ArmChairs</li>
           <li>Sofas</li>
           <li>Decor</li>
-        </ul>
+        </ul> */}
       </div>
 
       <div className="grid items-center gap-5 my-6 grid-cols-2 md:grid-cols-3">

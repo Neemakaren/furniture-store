@@ -5,9 +5,19 @@ import FilterByCategories from "./FilterByCategories";
 import FilterByMaterial from "./FilterByMaterial";
 import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt3 } from "react-icons/hi";
-import DynamicFilter from "./DynamicFilter";
+import FilterByPrice from "./FilterByPrice";
+import FilterByFinish from "./FilterByFinish";
+// import DynamicFilter from "./DynamicFilter";
 
-const SideNav = ({  }) => {
+const SideNav = ({
+  categoryData,
+  typeData,
+  priceData,
+  colorData,
+  finishData,
+  resetFilters,
+  filteredProducts
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleCloseNavbar = () => {
@@ -16,14 +26,21 @@ const SideNav = ({  }) => {
 
   return (
     <>
-      <nav className="z-50">
-        <div className="flex justify-between">
-          <span className="mt-6 text-[18px] font-bold">Price: $99 - $9999</span>
-        </div>
+      <nav className="z-50 border-2 mr-2 rounded-lg">
+        <div className="grid grid-cols-1 p-2">
+          <FilterByPrice priceData={priceData} />
+          <FilterByCategories categoryData={categoryData} />
+          <FilterByMaterial typeData={typeData} />
+          <FilterByFinish finishData={finishData} />
+          <FilterByColor colorData={colorData} />
 
-        <FilterByCategories  />
-        <FilterByColor />
-        <FilterByMaterial />
+          <button
+            className="bg-black text-white py-2 px-6 rounded-[10px] mt-3"
+            onClick={resetFilters}
+          >
+            Reset Filters ({filteredProducts?.length})
+          </button>
+        </div>
 
         <div className="">
           <h5 className="mt-6 text-[20px] font-bold">Filter by Brand</h5>

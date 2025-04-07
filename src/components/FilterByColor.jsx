@@ -1,147 +1,49 @@
 import React, { useContext } from "react";
 
+const FilterByColor = ({ colorData }) => {
+  const { label, options, selectedOptions, setSelectedOptions, isColor } =
+    colorData;
 
-
-const FilterByColor = () => {
-  
-  
-
+  const handleCheckboxChange = (option) => {
+    if (selectedOptions.includes(option)) {
+      setSelectedOptions(selectedOptions.filter((item) => item !== option));
+    } else {
+      setSelectedOptions([...selectedOptions, option]);
+    }
+  };
   return (
     <section className="flex flex-col justify-center sm:justify-start lg:flex-col px-4">
-      <h4 className="mt-6 text-[20px] font-bold">Filter by Color</h4>
-     <div className="sm:flex sm:flex-col sm:items-start sm:justify-start sm:w-50">
-      <div className="inline-flex items-center w-full justify-between">
-           <div className="flex">
-            <input
-              type="radio"
-              className="ml-3"
-              id="freelance"
-              name="white"
-              value="white"
-            />
-            {/* </label> */}
-            <label
-              className="flex items-center p-2 rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="freelance"
-            >
-              white
-            </label>
+      <h4 className="mt-6 text-[15px] font-bold">Filter by Color</h4>
+      <div className="bg-gray-100">
+        <div className="mb-2">
+          <h3>{label}:</h3>
+          <div className="space-y-2">
+            {options.map((option, id) => (
+              <label className="flex space-x-3" key={id}>
+                <input
+                  type="checkbox"
+                  value={option}
+                  checked={selectedOptions.includes(option)}
+                  onChange={() => handleCheckboxChange(option)}
+                />
+                {
+                  <div>
+                    {isColor ? (
+                      <div
+                        className="h-[15px] w-[15px] rounded-full"
+                        style={{ backgroundColor: option }}
+                      ></div>
+                    ) : (
+                      option
+                    )}
+                  </div>
+                }
+              </label>
+            ))}
           </div>
-          <span className="border-2 flex items-center justify-center px-2 rounded-2xl">
-            10
-          </span>
         </div>
-
-        <div className="inline-flex items-center w-full justify-between">
-          <div className="flex">
-            <input
-              type="radio"
-              className="ml-3 checked:bg-red-700"
-              id="fulltime"
-              name="black"
-              value="black"
-            />
-            {/* </label> */}
-            <label
-              className="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="fulltime"
-            >
-              Black
-            </label>
-          </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
-        <div className="inline-flex items-center w-full justify-between">
-          <div className="flex">
-            <input
-              type="radio"
-              className="ml-3"
-              id="internship"
-              name="grey"
-              value="grey"
-            />
-            {/* </label> */}
-            <label
-              className="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="internship"
-            >
-              Grey
-            </label>
-          </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
-
-        <div className="inline-flex items-center w-full justify-between">
-          <div className="flex">
-            <input
-              type="radio"
-              className="ml-3"
-              id="parttime"
-              name="brown"
-              value="brown"
-            />
-            {/* </label> */}
-            <label
-              className="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="parttime"
-            >
-              Brown
-            </label>
-          </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
-
-        <div className="inline-flex items-center w-full justify-between">
-          <div className="flex">
-            <input
-              type="radio"
-              className="ml-3"
-              id="remote"
-              name="blue"
-              value="blue"
-            />
-            {/* </label> */}
-            <label
-              className="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="remote"
-            >
-              Blue
-            </label>
-          </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
-
-        <div className="inline-flex items-center w-full justify-between">
-          <div className="flex">
-            <input
-              type="radio"
-              className="ml-3 accent-green-400"
-              id="temporary"
-              name="green"
-              value="green"
-            />
-            {/* </label> */}
-            <label
-              className="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="temporary"
-            >
-              Green
-            </label>
-          </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
-
       </div>
+      
     </section>
   );
 };

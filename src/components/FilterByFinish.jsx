@@ -1,9 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, {useEffect, useState} from 'react'
 
-
-
-const FilterByCategories = ({categoryData}) => {
-  
+const FilterByFinish = ({ finishData }) => {
   const {
     label,
     options,
@@ -12,7 +9,7 @@ const FilterByCategories = ({categoryData}) => {
     isPriceRange = false,
     filteredProducts,
     data,
-  } = categoryData;
+  } = finishData;
 
   
   const getMaxPrice = () =>
@@ -20,7 +17,7 @@ const FilterByCategories = ({categoryData}) => {
   const getSelectionPrice = () =>
     Math.max(...filteredProducts.map((product) => product.price), 0);
 
-  
+ 
   const [maxPrice, setMaxPrice] = useState(getMaxPrice());
   const [selectionPrice, setSelectionPrice] = useState(getSelectionPrice());
 
@@ -28,17 +25,15 @@ const FilterByCategories = ({categoryData}) => {
   const [sliderValue, setSliderValue] = useState(maxPrice.toString());
 
   useEffect(() => {
-   
+    
     setMaxPrice(getMaxPrice());
     setSelectionPrice(getSelectionPrice());
   }, [filteredProducts, data]);
 
   return (
-    <section className="flex flex-col w-50 justify-center font-sans sm:justify-start sm:w-80 lg:flex-col px-4">
-      <h4 className="mt-6 text-[15px] font-bold">Filter by Categories</h4>
-
+    <section className="flex flex-col w-100 justify-center sm:justify-start sm:w-80 lg:flex-col px-4">
       <div className="mb-2">
-        {/* <h3>{label}:</h3> */}
+        <h3 className="mt-6 text-[15px] font-bold">Filter by {label}:</h3>
         {isPriceRange ? (
           <div className="flex">
             <input
@@ -72,12 +67,8 @@ const FilterByCategories = ({categoryData}) => {
           </select>
         )}
       </div>
-
-      
     </section>
   );
 };
 
-export default FilterByCategories;
-
-
+export default FilterByFinish

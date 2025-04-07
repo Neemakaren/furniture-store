@@ -1,5 +1,5 @@
 import React from 'react'
-import { img } from '../assets/images'
+import { img, img1, img2, img3 } from '../assets/images'
 
 const Grid = () => {
   return (
@@ -16,22 +16,22 @@ const Grid = () => {
             </div>
 
             <div className="relative md:row-span-2 overflow-hidden shadow-lg group">
-                <img src={img} alt="" className="w-full h-full object-cover"/>
+                <img src={img1} alt="" className="w-full h-full object-cover"/>
                 <button className="absolute rounded-sm bottom-0 left-0  py-2 px-6 bg-black text-white">
-                    Bedroom
+                    Living Room
                     </button>
             </div>
         
             <div className="relative overflow-hidden shadow-lg group">
-                <img src={img} alt="Technology" className="w-full h-full object-cover"/>
+                <img src={img2} alt="Technology" className="w-full h-full object-cover"/>
                 <button className="absolute rounded-sm bottom-0 left-0  py-2 px-6 bg-black text-white">
-                    Bedroom
+                    Kitchen
                     </button>
             </div>
             <div className="relative overflow-hidden shadow-lg group">
-                <img src={img} alt="Technology" className="w-full h-full object-cover"/>
+                <img src={img3} alt="Technology" className="w-full h-full object-cover"/>
                 <button className="absolute rounded-sm bottom-0 left-0  py-2 px-6 bg-black text-white">
-                    Bedroom
+                    pateo
                     </button>
             </div>
 

@@ -6,12 +6,19 @@ import { line, chevDown, support, Return, payment, card2, ellipse1, ellipse2, el
 import FeaturedProducts from '../components/FeaturedProducts'
 import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt3 } from "react-icons/hi";
-import DynamicFilter from '../components/DynamicFilter'
+// import DynamicFilter from '../components/DynamicFilter'
 
 
-const AllCategories = ({data}) => {
- 
- 
+const AllCategories = ({
+  data,
+  categoryData,
+  typeData,
+  colorData,
+  finishData,
+  priceData,
+  filteredProducts,
+  resetFilters,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleCloseNavbar = () => {
@@ -23,39 +30,36 @@ const AllCategories = ({data}) => {
       <CategoryNav />
       <div className="flex container mx-auto justify-between">
         <div className="hidden lg:block">
-          <h5>Filter by Price</h5>
-          <img src={line} alt="" />
+          <h5 className="font-bold">Categories</h5>
         </div>
 
-        <h5 className="left-0">Showing 1-12 of 14results</h5>
+        <h5 className="left-0 text-3xl font-bold">
+          Filters ({filteredProducts.length})
+        </h5>
         <div className="flex">
           <p className="flex items-center justify-center font-medium gap-2 py-2 px-6 border-2 border-[#947458]">
             Sort By Latest <img src={chevDown} alt="" />
           </p>
         </div>
       </div>
-      <div className="flex container mx-auto">
+      <div className=" flex container mx-auto">
         <div className="">
-          <button
-            className="flex flex-row items-center right-0 z-10 maxx font-bold justify-center text-[10em] cursor-pointer lg:hidden transition-all duration-0.3 linear  text-black"
-            onClick={() => setIsOpen((prev) => !prev)}
-          >
-            {isOpen ? <AiOutlineClose size={26} /> : <HiMenuAlt3 size={26} />}
-          </button>
-
-          {/*             
-          <div onClick={handleCloseNavbar}
-          className={`${isOpen ? " flex " : "hidden"} cursor-pointer w-[200%] lg:hidden flex-col left-0 h-full z-10`}>
-   <SideNav handleChange={handleChange}/>
-          </div> */}
-          <div className="">
+          <div className=" ">
             {" "}
-            <SideNav  />
+            <SideNav
+              categoryData={categoryData}
+              typeData={typeData}
+              priceData={priceData}
+              colorData={colorData}
+              finishData={finishData}
+              resetFilters={resetFilters}
+              filteredProducts={filteredProducts}
+            />
           </div>
         </div>
 
         <div className="w-full lg:w-3/4">
-          <Sort data={data}/>
+          <Sort data={data} filteredProducts={filteredProducts} />
         </div>
       </div>
 

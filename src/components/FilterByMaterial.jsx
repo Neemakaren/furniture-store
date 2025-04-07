@@ -1,129 +1,79 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 
 
 
-const FilterByMaterial = () => {
+
+const FilterByMaterial = ({ typeData }) => {
+  const {
+    label,
+    options,
+    selectedOptions,
+    setSelectedOptions,
+    isPriceRange = false,
+    filteredProducts,
+    data,
+  } = typeData;
+
+   
+    const getMaxPrice = () =>
+      Math.max(...data.map((product) => product.price), 0);
+    const getSelectionPrice = () =>
+      Math.max(...filteredProducts.map((product) => product.price), 0);
   
+    
+    const [maxPrice, setMaxPrice] = useState(getMaxPrice());
+    const [selectionPrice, setSelectionPrice] = useState(getSelectionPrice());
+  
+   
+    const [sliderValue, setSliderValue] = useState(maxPrice.toString());
+  
+    useEffect(() => {
+      setMaxPrice(getMaxPrice());
+      setSelectionPrice(getSelectionPrice());
+    }, [filteredProducts, data]);
+
+
+
   return (
     <section className="flex flex-col w-100 justify-center sm:justify-start sm:w-80 lg:flex-col px-4">
-      <h4 className="mt-6 text-[20px] font-bold">Filter by Material</h4>
-      <div className="sm:flex sm:flex-col sm:items-start sm:justify-start sm:w-50">
-        <div class="inline-flex items-center w-full justify-between">
+      <h4 className="mt-6 text-[15px] font-bold">Filter by Material</h4>
+      <div className="mb-2">
+        {/* <h3>{label}:</h3> */}
+        {isPriceRange ? (
           <div className="flex">
             <input
-              type="checkbox"
-              className="ml-3"
-              id="freelance"
-              name="white"
-              value="white"
-             
+              type="range"
+              min="0"
+              max={maxPrice.toString()}
+              step="1"
+              value={sliderValue}
+              onChange={(e) => {
+                const minPrice = e.target.value;
+                setSliderValue(minPrice);
+                setSelectedOptions([minPrice, sliderValue]);
+              }}
             />
-
-            <label
-              class="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="freelance"
-            >
-              Leather
-            </label>
+            <div className="whitespace-nowrap font-bold ml-1">
+              $0 - ${selectionPrice};
+            </div>
           </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
-
-        <div class="inline-flex items-center w-full justify-between">
-          <div className="flex">
-            <input
-              type="checkbox"
-              className="ml-3"
-              id="fulltime"
-              name="black"
-              value="black"
-             
-            />
-
-            <label
-              class="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="fulltime"
-            >
-              Marble
-            </label>
-          </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
-
-        <div class="inline-flex items-center w-full justify-between">
-          <div className="flex">
-            <input
-              type="checkbox"
-              className="ml-3"
-              id="internship"
-              name="grey"
-              value="grey"
-             
-            />
-
-            <label
-              class="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="internship"
-            >
-              Metal
-            </label>
-          </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
-
-        <div class="inline-flex items-center w-full justify-between">
-          <div className="flex">
-            <input
-              type="checkbox"
-              className="ml-3"
-              id="parttime"
-              name="brown"
-              value="brown"
-              
-            />
-
-            <label
-              class="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="parttime"
-            >
-              Wood
-            </label>
-          </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
-
-        <div class="inline-flex items-center w-full justify-between">
-          <div className="flex">
-            <input
-              type="checkbox"
-              className="ml-3"
-              id="remote"
-              name="blue"
-              value="blue"
-            
-            />
-
-            <label
-              class="flex items-center p-2  rounded-full font-light text-gray-700 cursor-pointer select-none"
-              htmlFor="remote"
-            >
-              Leatherette
-            </label>
-          </div>
-          <span className="border-2 flex items-center justify-center px-2  rounded-2xl">
-            10
-          </span>
-        </div>
+        ) : (
+          <select
+            value={selectedOptions}
+            onChange={(e) => setSelectedOptions(e.target.value)}
+            className="border w-full rounded-none capitalize"
+          >
+            <option value="">All</option>
+            {options.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
-      ;
+      
+      
     </section>
   );
 };
